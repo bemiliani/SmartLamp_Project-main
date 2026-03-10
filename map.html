@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLamp - Localisation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="main-wrapper">
+        <header>
+            <h1>SMART LAMP <span>MAP</span> </h1>
+            <div class="header-controls">
+                <a href="index.html" class="nav-btn-main">← Dashboard</a>
+                <div class="theme-controls">
+                    <span id="theme-text">Mode Jour</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <div class="chart-card" style="height: auto;">
+            <h4>Localisation des Lampadaires</h4>
+            <div id="map-container"></div>
+            <div class="map-legend">
+                <span><i style="background: #4caf50"></i> OK</span>
+                <span><i style="background: #ffeb3b"></i> Faible</span>
+                <span><i style="background: #ff9800"></i> Erreur</span>
+                <span><i style="background: #f44336"></i> Panne</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>

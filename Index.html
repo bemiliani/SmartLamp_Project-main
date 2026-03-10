@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLamp - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="notification-container"></div>
+    <div class="main-wrapper">
+        <header>
+            <h1>SMART <span>LAMP</span></h1>
+            <div class="header-controls">
+                <a href="map.html" class="nav-btn-main">📍 Voir la Carte</a>
+                <div class="theme-controls">
+                    <span id="theme-text">Mode Jour</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card" id="btn-battery">
+                <h3>⚡ Batterie</h3>
+                <p class="value" id="val-battery">--%</p>
+                <span class="subtext">Voir l'historique</span>
+            </div>
+            <div class="card" id="btn-power">
+                <h3>↓ Puissance</h3>
+                <p class="value" id="val-power" style="color:var(--accent-blue)">--W</p>
+                <span class="subtext">Voir l'historique</span>
+            </div>
+            <div class="card" id="btn-lux">
+                <h3>💡 Lumière</h3>
+                <p class="value" id="val-lux" style="color:var(--accent-orange)">-- lux</p>
+                <span class="subtext">Voir l'historique</span>
+            </div>
+            <div class="card" id="btn-temp">
+                <h3>🌡️ Température</h3>
+                <p class="value" id="val-temp" style="color:var(--accent-red)">--°C</p>
+                <span class="subtext">Voir l'historique</span>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-card">
+                <h4 id="chart-title">Historique Batterie</h4>
+                <div class="canvas-container">
+                    <canvas id="mainChart"></canvas>
+                </div>
+                <div class="time-selector-container">
+                    <div class="time-selector">
+                        <button class="time-btn" onclick="setTimeScale(1, this)">1m</button>
+                        <button class="time-btn" onclick="setTimeScale(10, this)">10m</button>
+                        <button class="time-btn" onclick="setTimeScale(60, this)">1H</button>
+                        <button class="time-btn active" id="default-time" onclick="setTimeScale(1440, this)">24H</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
