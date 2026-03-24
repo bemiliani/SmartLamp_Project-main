@@ -113,7 +113,7 @@ async function refreshData() {
             document.getElementById('val-temp').innerText = Math.round(last.temperature) + "°C";
         }
         updateChart();
-    } catch (e) { console.error("Erreur Fetch Dashboard"); }
+    } catch (e) { console.error("Erreur Fetch Dashboard", err); }
 }
 
 function toggleTheme(mode) {

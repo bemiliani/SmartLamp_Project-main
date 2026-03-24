@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const history = await response.json();
         const api = history[history.length - 1];
 
-        /*const lampadaires = [
+        const lampadaires = [
             { id: 1, pos: [43.7352, 5.3012], state: 'OK' },
             { id: 2, pos: [43.7355, 5.3015], state: 'OK' },
             { id: 3, pos: [43.7348, 5.3008], state: 'Faible' },
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             { id: 8, pos: [43.7342, 5.3000], state: 'OK' },
             { id: 9, pos: [43.7360, 5.3012], state: 'OK' },
             { id: 10, pos: [43.7353, 5.3002], state: 'OK' }
-        ];*/
+        ];
 
         const statusStyle = {
             'OK': { c: '#4caf50', t: 'Tout est OK' },
@@ -60,5 +60,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             L.circleMarker(l.pos, { radius: 11, fillColor: s.c, color: "#fff", weight: 2, fillOpacity: 0.9 })
              .addTo(map).bindPopup(popup);
         });
-    } catch (err) { console.error("Erreur Map API"); }
+    } catch (err) { console.error("Erreur Map API", err); }
 });
