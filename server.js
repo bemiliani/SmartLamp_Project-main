@@ -30,8 +30,8 @@ pool.getConnection()
 
 // 2. CONNEXION À TTN VIA MQTT
 const ttnMqttHost = 'mqtts://eu1.cloud.thethings.network:8883';
-const ttnUser = 'nox-ayrox@ttn'; 
-const ttnPassword = 'NNSXS.O4QKUJDXGJMWBG76L5SMVVNUPDGE63U4JV6VCLI.CLLLFLRHDDHYLIJXHCPWSJ7ZJHSSWFE6KZKXGTNVW5GY3EBY3QKQ';
+const ttnUser = 'projet-luminaire-tonnom@ttn'; 
+const ttnPassword = 'NNSXS.PKBEA3CNHZVTJIRFO2KXXFUK7JHQ3VX4YGB27MI.FSQDKDZB5XO5SK4DFGCRFEYADL3UKW3NJ55XKS4CGYQOAAPAHICA';
 
 const client = mqtt.connect(ttnMqttHost, {
     username: ttnUser,
