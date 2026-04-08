@@ -105,15 +105,25 @@ async function refreshData() {
     try {
         const res = await fetch('http://localhost:3000/api/donnees');
         allData = await res.json();
-        const last = allData[allData.length - 1];
-        if (last) {
-            document.getElementById('val-battery').innerText = Math.round(last.batterie) + "%";
-            document.getElementById('val-power').innerText = Math.round(last.puissance) + "W";
-            document.getElementById('val-lux').innerText = Math.round(last.lux) + " lux";
-            document.getElementById('val-temp').innerText = Math.round(last.temperature) + "°C";
+
+        if (allData.length > 0) {
+            // Fonction de calcul de moyenne sur tout le tableau allData
+            const getAvg = (prop) => {
+                const sum = allData.reduce((acc, curr) => acc + parseFloat(curr[prop] || 0), 0);
+                return (sum / allData.length).toFixed(1);
+            };
+
+            // Mise à jour des cartes avec les moyennes
+            document.getElementById('val-battery').innerText = Math.round(getAvg('batterie')) + "%";
+            document.getElementById('val-power').innerText = getAvg('puissance') + "W";
+            document.getElementById('val-lux').innerText = Math.round(getAvg('lux')) + " lux";
+            document.getElementById('val-temp').innerText = getAvg('temperature') + "°C";
         }
-        updateChart();
-    } catch (e) { console.error("Erreur Fetch Dashboard", err); }
+        
+        updateChart(); // Le graphique utilisera currentTimeScale qui est déjà à 1440
+    } catch (e) { 
+        console.error("Erreur Fetch Dashboard", e); 
+    }
 }
 
 function toggleTheme(mode) {

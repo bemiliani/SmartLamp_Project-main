@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const lampadaires = [
             { id: 1, pos: [43.7352, 5.3012], state: 'OK' },
             { id: 2, pos: [43.7355, 5.3015], state: 'OK' },
-            { id: 3, pos: [43.7348, 5.3008], state: 'Faible' },
+            { id: 3, pos: [43.7348, 5.3008], state: 'OK' },
             { id: 4, pos: [43.7345, 5.3020], state: 'OK' },
-            { id: 5, pos: [43.7358, 5.3005], state: 'Erreur' },
+            { id: 5, pos: [43.7358, 5.3005], state: 'OK' },
             { id: 6, pos: [43.7351, 5.3025], state: 'OK' },
-            { id: 7, pos: [43.7340, 5.3010], state: 'Panne' },
+            { id: 7, pos: [43.7340, 5.3010], state: 'OK' },
             { id: 8, pos: [43.7342, 5.3000], state: 'OK' },
             { id: 9, pos: [43.7360, 5.3012], state: 'OK' },
             { id: 10, pos: [43.7353, 5.3002], state: 'OK' }
