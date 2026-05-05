@@ -125,6 +125,19 @@ async function refreshData() {
         console.error("Erreur Fetch Dashboard", e); 
     }
 }
+function updateCardStyles(data) {
+    const batteryCard = document.getElementById('btn-battery');
+    
+    // Reset des classes
+    batteryCard.classList.remove('state-low-batt');
+    
+    // Application si batterie < 15
+    if (data.batterie < 15) {
+        batteryCard.classList.add('state-low-batt');
+    }
+    
+    // Idem pour les autres états (Critique, HS...)
+}
 
 function toggleTheme(mode) {
     document.body.classList.toggle('mode-nuit', mode === 'nuit');

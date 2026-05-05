@@ -14,8 +14,7 @@ const pool = mariadb.createPool({
     host: '172.20.30.15',
     user: 'admin',
     password: 'fourcade',
-    database: 'smartlamp_db',
-    connectionLimit: 5
+    database: 'smartlamp_db'
 });
 
 // Test de la connexion
@@ -54,7 +53,6 @@ client.on('message', async (topic, message) => {
 
             console.log(`--- Nouveau message de ${devId} ---`);
 
-            // --- C'EST ICI QUE VOUS PLACEZ LE CODE D'OPTIMISATION ---
             const values = [
                 devId, 
                 data.batterie || 0, 
@@ -62,7 +60,6 @@ client.on('message', async (topic, message) => {
                 data.lux || 0, 
                 parseFloat(data.temperature || 0).toFixed(1)
             ];
-            // -------------------------------------------------------
 
             // Insertion dans MariaDB en utilisant le tableau 'values'
             const sql = "INSERT INTO donnees_capteurs (device_id, batterie, puissance, lux, temperature) VALUES (?, ?, ?, ?, ?)";
@@ -91,6 +88,7 @@ app.listen(PORT, () => {
     console.log(`✅ Serveur SmartLamp actif sur le port ${PORT}`);
 });
 
+//Simulation de données
 
 // Projet V2 Génération de données
 
