@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mariadb = require('mariadb'); // Utilisation de MariaDB
@@ -11,10 +12,10 @@ app.use(express.json());
 
 // 1. CONNEXION À LA BASE DE DONNÉES (Configuration Pool MariaDB)
 const pool = mariadb.createPool({
-    host: '172.20.30.15',
-    user: 'admin',
-    password: 'fourcade',
-    database: 'smartlamp_db'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 // Test de la connexion
@@ -28,13 +29,10 @@ pool.getConnection()
     });
 
 // 2. CONNEXION À TTN VIA MQTT
-const ttnMqttHost = 'mqtts://eu1.cloud.thethings.network:8883';
-const ttnUser = 'projet-luminaire-tonnom@ttn'; 
-const ttnPassword = 'NNSXS.PKBEA3CNHZVTJIRFO2KXXFUK7JHQ3VX4YGB27MI.FSQDKDZB5XO5SK4DFGCRFEYADL3UKW3NJ55XKS4CGYQOAAPAHICA';
 
-const client = mqtt.connect(ttnMqttHost, {
-    username: ttnUser,
-    password: ttnPassword
+const client = mqtt.connect(process.env.TTN_HOST, {
+    username: process.env.TTN_USER,
+    password: process.env.TTN_PASS
 });
 
 client.on('connect', () => {
